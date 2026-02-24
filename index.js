@@ -17,5 +17,16 @@ app.post("/toggle", (req, res) => {
   res.json({ active: isActive });
 });
 
+// Set it directly: /on or /off
+app.get("/on", (req, res) => {
+  isActive = true;
+  res.json({ active: isActive });
+});
+
+app.get("/off", (req, res) => {
+  isActive = false;
+  res.json({ active: isActive });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log("Server running on port " + PORT));
